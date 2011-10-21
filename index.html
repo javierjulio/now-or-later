@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Now or Later</title>
+    <script src="js/libs/json2.js"></script>
+    <script src="js/libs/jquery-min.js"></script>
+    <script src="js/libs/underscore-min.js"></script>
+    <script src="js/libs/backbone-min.js"></script>
+    <script src="js/libs/backbone-localstorage.js"></script>
+    <script src="js/app.js"></script>
+    <style type="text/css">
+    body{font-family: Helvetica;margin: 30px 0 0 40px;}
+    
+    #todo-input {
+      width: 450px;
+      font-size: 24px;
+      font-family: inherit;
+      line-height: 1.4em;
+      padding: 6px;
+    }
+    
+    #now-todos {
+      width: 450px;
+    }
+    
+    ul.todo-list, ul.todo-list li {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    ul.todo-list li {
+      font-size: 20px;
+      margin: 7px;
+    }
+    ul.todo-list .form {
+      display: none;
+    }
+    ul.todo-list li.editing .display {
+      display: none;
+    }
+    ul.todo-list li.editing .form {
+      display: block;
+    }
+    ul.todo-list input.todo-editor {
+      font-size: inherit;
+      width: 100%;
+    }
+    ul.todo-list .remove {
+      float: right;
+    }
+    </style>
+  </head>
+  <body>
+  
+  <div id="container">
+    
+    <div id="todo-form">
+      <input id="todo-input" type="text" placeholder="New to do" />
+    </div>
+    
+    <div id="now-todos">
+      <ul class="todo-list"></ul>
+    </div>
+    
+    <div id="later-todos">
+      <ul class="todo-list"></ul>
+    </div>
+    
+  </div>
+  
+  <script type="text/template" id="todo-template">
+    <div class="display">
+      <label>
+        <input type="checkbox" class="check" />
+      </label>
+      <span class="todo-content"></span>
+      <a href="#" class="remove">Delete</a>
+    </div>
+    <div class="form">
+      <input class="todo-editor" type="text" />
+    </div>
+  </script>
+  
+  </body>
+</html>
