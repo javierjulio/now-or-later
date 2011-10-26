@@ -100,7 +100,10 @@
       AppView.prototype.initialize = function() {
         nowTodos.bind('add', this.addItem, this);
         nowTodos.bind('reset', this.addAll, this);
-        return nowTodos.fetch();
+        nowTodos.fetch();
+        laterTodos.bind('add', this.addLaterTodo, this);
+        laterTodos.bind('reset', this.addAllLaterTodos, this);
+        return laterTodos.fetch();
       };
       AppView.prototype.el = $('#container');
       AppView.prototype.events = {
@@ -115,6 +118,16 @@
           model: todo
         });
         return $('#now-todos ul.todo-list').append(view.render().el);
+      };
+      AppView.prototype.addAllLaterTodos = function() {
+        return laterTodos.each(this.addLaterTodo);
+      };
+      AppView.prototype.addLaterTodo = function(todo) {
+        var view;
+        view = new TodoView({
+          model: todo
+        });
+        return $('#later-todos ul.todo-list').append(view.render().el);
       };
       AppView.prototype.createOnEnter = function(event) {
         var text;
