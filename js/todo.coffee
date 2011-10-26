@@ -89,6 +89,10 @@ $ ->
       nowTodos.bind 'add', @addItem, this
       nowTodos.bind 'reset', @addAll, this
       nowTodos.fetch()
+      
+      laterTodos.bind 'add', @addLaterTodo, this
+      laterTodos.bind 'reset', @addAllLaterTodos, this
+      laterTodos.fetch()
     
     el: $('#container')
     
@@ -101,6 +105,13 @@ $ ->
     addItem: (todo) ->
       view = new TodoView {model: todo}
       $('#now-todos ul.todo-list').append(view.render().el)
+    
+    addAllLaterTodos: ->
+      laterTodos.each(@addLaterTodo)
+    
+    addLaterTodo: (todo) ->
+      view = new TodoView {model: todo}
+      $('#later-todos ul.todo-list').append(view.render().el)
     
     createOnEnter: (event) ->
       text = $('#todo-input').val()
