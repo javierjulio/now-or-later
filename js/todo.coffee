@@ -93,6 +93,10 @@ $ ->
       laterTodos.bind 'add', @addLaterTodo, this
       laterTodos.bind 'reset', @addAllLaterTodos, this
       laterTodos.fetch()
+      
+      $("#now-todo-list, #later-todo-list").sortable({
+        connectWith: ".todo-list"
+      }).disableSelection();
     
     el: $('#container')
     

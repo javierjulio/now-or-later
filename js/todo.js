@@ -103,7 +103,10 @@
         nowTodos.fetch();
         laterTodos.bind('add', this.addLaterTodo, this);
         laterTodos.bind('reset', this.addAllLaterTodos, this);
-        return laterTodos.fetch();
+        laterTodos.fetch();
+        return $("#now-todo-list, #later-todo-list").sortable({
+          connectWith: ".todo-list"
+        }).disableSelection();
       };
       AppView.prototype.el = $('#container');
       AppView.prototype.events = {
