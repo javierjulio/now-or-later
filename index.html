@@ -19,8 +19,13 @@
       padding: 6px;
     }
     
-    #now-todos {
+    #now-todos, #later-todos {
+      float: left;
       width: 450px;
+    }
+    
+    #later-todos {
+      margin-left: 50px;
     }
     
     ul.todo-list, ul.todo-list li {
@@ -30,7 +35,7 @@
     }
     ul.todo-list li {
       font-size: 20px;
-      margin: 7px;
+      margin: 7px 0;
     }
     ul.todo-list .form {
       display: none;
@@ -59,10 +64,12 @@
     </div>
     
     <div id="now-todos">
+      <h4>Now</h4>
       <ul class="todo-list"></ul>
     </div>
     
     <div id="later-todos">
+      <h4>Later</h4>
       <ul class="todo-list"></ul>
     </div>
     
